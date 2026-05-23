@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#6200EE">
+  <meta name="description" content="DataTracker - 个人数据追踪分析应用">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>DataTracker - 个人数据追踪分析</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #F5F5F5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    .loading {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      color: #6200EE;
+    }
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #6200EE;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .header {
+      background: linear-gradient(135deg, #6200EE 0%, #9C27B0 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .header p {
+      opacity: 0.9;
+      font-size: 16px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      flex: 1;
+    }
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .hero h2 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+    .hero p {
+      color: #666;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin: 30px 0;
+    }
+    @media (min-width: 768px) {
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .feature {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+    .feature h3 {
+      color: #6200EE;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .feature p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+    .cta {
+      text-align: center;
+      margin: 30px 0;
+      padding: 30px;
+      background: linear-gradient(135deg, #6200EE 0%, #9C27B0 100%);
+      border-radius: 16px;
+      color: white;
+    }
+    .cta h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .cta p {
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #6200EE;
+      padding: 15px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .instructions {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+    .instructions h2 {
+      color: #6200EE;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+    .instructions ol {
+      padding-left: 25px;
+    }
+    .instructions li {
+      margin: 15px 0;
+      line-height: 1.8;
+      color: #333;
+      font-size: 15px;
+    }
+    .instructions code {
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #6200EE;
+      font-family: monospace;
+    }
+    .footer {
+      background: #333;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: auto;
+    }
+    .footer p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading" id="loading">
+    <div class="loading-spinner"></div>
+    <p>正在加载 DataTracker...</p>
+  </div>
+
+  <div id="app" style="display: none;">
+    <div class="header">
+      <h1>📊 DataTracker</h1>
+      <p>个人数据追踪分析应用</p>
+    </div>
+    
+    <div class="container">
+      <div class="hero">
+        <h2>🚀 完整功能的数据分析应用</h2>
+        <p>
+          DataTracker 是一款功能完整的数据追踪分析应用，支持数据可视化、统计分析、
+          本地存储和 PWA 应用。无需下载，直接添加到手机桌面即可使用！
+        </p>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">📈</div>
+          <h3>数据可视化</h3>
+          <p>折线图、柱状图、饼图等多种图表，清晰展示数据趋势</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📊</div>
+          <h3>统计分析</h3>
+          <p>总计、平均值、最大最小值、趋势分析，全面了解数据</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💾</div>
+          <h3>本地存储</h3>
+          <p>数据保存在本地设备，保护隐私安全，无需担心数据泄露</p>
+        </div>
+        

@@ -1,0 +1,20 @@
+{
+  "name": "DataTracker - 个人数据追踪分析",
+  "short_name": "DataTracker",
+  "description": "个人数据追踪分析应用，支持数据可视化、统计分析和本地存储",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F5F5",
+  "theme_color": "#6200EE",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "lang": "zh-CN"
+}
